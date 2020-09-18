@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-center">LOGIN</h1>
+    <h1 class="text-center text-muted mb-4">LOGIN</h1>
     <b-form @submit="submit">
       <b-form-group label="Email" label-for="input-email">
         <b-form-input
@@ -16,21 +16,18 @@
           id="input-password"
           v-model="form.password"
           type="password"
+          :state="false"
           required
         />
         <b-form-invalid-feedback> Required field </b-form-invalid-feedback>
       </b-form-group>
 
-      <b-button variant="primary" block>Login</b-button>
-      <div class="mt-2">
+      <b-button variant="primary" class="mt-2" block>Login</b-button>
+
+      <nuxt-link :to="{ name: 'register' }" class="d-block mt-2 text-dark">
         <span>Don't have account?</span>
-        <nuxt-link
-          :to="{ name: 'register' }"
-          class="font-weight-bold text-dark"
-        >
-          Register Now
-        </nuxt-link>
-      </div>
+        <strong>Register Now</strong>
+      </nuxt-link>
     </b-form>
   </div>
 </template>
