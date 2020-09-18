@@ -64,16 +64,7 @@ module.exports = {
     'vue/no-unregistered-components': [
       'error',
       {
-        ignorePatterns: [
-          'nuxt(-\\w+)?',
-          'b-\\w+',
-          'portlet',
-          'perfect-scrollbar',
-          'inline-svg',
-          'client-only',
-          'router-link',
-          'separator',
-        ],
+        ignorePatterns: ['nuxt(-\\w+)?', 'b-\\w+'],
       },
     ],
     'vue/no-unused-properties': [
