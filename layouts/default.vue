@@ -1,12 +1,15 @@
 <template>
   <div>
+    <header-layout />
     <nuxt />
   </div>
 </template>
 
 <script>
+import HeaderLayout from '~/components/layouts/header/Header.vue'
 export default {
   middleware: 'auth',
+  components: { HeaderLayout },
 }
 </script>
 
