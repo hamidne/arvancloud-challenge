@@ -1,25 +1,13 @@
 <template>
-  <div class="sidebar bg-primary w-100">asdasd</div>
+  <div class="sidebar bg-primary w-100">
+    <sidebar-menu />
+  </div>
 </template>
 
 <script>
+import SidebarMenu from '~/components/layouts/sidebar/SidebarMenu.vue'
 export default {
-  data: () => ({
-    menu: [
-      {
-        header: true,
-        title: 'Post',
-      },
-      {
-        href: { name: 'index' },
-        title: 'All Articles',
-      },
-      {
-        title: 'New Article',
-        href: { name: 'stacks' },
-      },
-    ],
-  }),
+  components: { SidebarMenu },
 }
 </script>
 

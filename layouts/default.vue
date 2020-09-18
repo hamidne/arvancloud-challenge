@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <header-layout />
-    <div class="layout__wrapper">
+    <div class="layout__wrapper d-flex">
       <sidebar />
       <nuxt />
     </div>
