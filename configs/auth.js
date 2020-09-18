@@ -1,5 +1,4 @@
 export default {
-  localStorage: false,
   cookie: {
     options: {
       secure: true,
@@ -15,8 +14,12 @@ export default {
     local: {
       tokenType: 'Token',
       endpoints: {
-        user: { url: '/user', method: 'get', propertyName: 'data' },
-        login: { url: '/users/login', method: 'post', propertyName: 'data' },
+        user: { url: '/user', method: 'get', propertyName: 'user' },
+        login: {
+          url: '/users/login',
+          method: 'post',
+          propertyName: 'user.token',
+        },
         logout: false,
       },
     },
