@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1 class="text-center text-muted mb-4">Register</h1>
-    <b-form @submit="submit">
-      <b-form-group label="User" label-for="input-user">
-        <b-form-input id="input-user" v-model="form.user" required />
+    <b-form @submit.prevent="submit">
+      <b-form-group label="User" label-for="input-username">
+        <b-form-input id="input-username" v-model="form.username" required />
       </b-form-group>
 
       <b-form-group label="Email" label-for="input-email">
@@ -25,7 +25,7 @@
         <b-form-invalid-feedback> Required field </b-form-invalid-feedback>
       </b-form-group>
 
-      <b-button variant="primary" block>Register</b-button>
+      <b-button variant="primary" type="submit" block>Register</b-button>
 
       <nuxt-link :to="{ name: 'login' }" class="d-block mt-2 text-dark">
         <span>Already Registered?</span>
@@ -40,7 +40,11 @@ export default {
   layout: 'auth',
   data: () => ({ form: {} }),
   methods: {
-    submit() {},
+    submit() {
+      this.$axios
+        .$post('/users', { user: this.form })
+        .then(({ user }) => this.$auth.setUserToken(user.token))
+    },
   },
 }
 </script>
