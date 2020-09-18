@@ -3,6 +3,7 @@
 export default [
   // https://go.nuxtjs.dev/bootstrap
   'bootstrap-vue/nuxt',
+  '@nuxtjs/auth',
   // https://go.nuxtjs.dev/axios
   '@nuxtjs/axios',
 ]

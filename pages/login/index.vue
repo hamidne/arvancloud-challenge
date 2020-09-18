@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="text-center text-muted mb-4">LOGIN</h1>
-    <b-form @submit="submit">
+    <b-form @submit.prevent="submit">
       <b-form-group label="Email" label-for="input-email">
         <b-form-input
           id="input-email"
@@ -19,10 +19,12 @@
           :state="false"
           required
         />
-        <b-form-invalid-feedback> Required field </b-form-invalid-feedback>
+        <b-form-invalid-feedback>Required field</b-form-invalid-feedback>
       </b-form-group>
 
-      <b-button variant="primary" class="mt-2" block>Login</b-button>
+      <b-button variant="primary" class="mt-2" type="submit" block>
+        Login
+      </b-button>
 
       <nuxt-link :to="{ name: 'register' }" class="d-block mt-2 text-dark">
         <span>Don't have account?</span>
@@ -37,7 +39,9 @@ export default {
   layout: 'auth',
   data: () => ({ form: {} }),
   methods: {
-    submit() {},
+    submit() {
+      this.$auth.login({ data: { user: this.form } })
+    },
   },
 }
 </script>
