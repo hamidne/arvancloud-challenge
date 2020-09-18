@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link :to="item.href" class="d-flex font-12 text-white">
+  <nuxt-link
+    :to="item.href"
+    class="sidebar-menu__item d-flex font-12 text-white"
+  >
     {{ item.title }}
   </nuxt-link>
 </template>
@@ -15,4 +18,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.sidebar-menu__item {
+  padding-left: 1.3rem;
+  text-decoration: none;
+}
+</style>
