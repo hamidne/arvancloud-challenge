@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="#">Arvan Challenge</b-navbar-brand>
+    <b-navbar-brand :to="{ name: 'index' }">Arvan Challenge</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse" />
 
@@ -10,14 +10,22 @@
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
-        <b-button variant="outline-info">Logout</b-button>
+        <b-button variant="outline-info" @click="logout">Logout</b-button>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    logout() {
+      if (confirm('asdasd')) {
+        this.$auth.logout().then(() => this.$router.push({ name: 'login' }))
+      }
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped></style>
