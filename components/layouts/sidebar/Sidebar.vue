@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar bg-primary w-100">
+  <div class="sidebar text-white bg-primary w-100">
     <sidebar-menu />
   </div>
 </template>

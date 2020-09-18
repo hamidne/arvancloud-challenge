@@ -1,5 +1,5 @@
 <template>
-  <ul class="sidebar-menu bg-primary w-100">
+  <ul class="sidebar-menu list-unstyled bg-primary w-100">
     <template v-for="(item, index) in menu">
       <sidebar-menu-header v-if="item.header" :key="index" :item="item" />
       <sidebar-menu-item v-else :key="index" :item="item" />
@@ -31,4 +31,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.sidebar-menu {
+  padding-top: 0.5rem;
+  padding-left: 1.2rem;
+}
+</style>
