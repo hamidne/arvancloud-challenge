@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
       <h1 class="title">arvancloud-challenge</h1>
       <div class="links">
         <a
