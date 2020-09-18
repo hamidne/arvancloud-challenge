@@ -19,12 +19,12 @@ export default {
         title: 'Post',
       },
       {
-        href: { name: 'index' },
+        href: { name: 'articles' },
         title: 'All Articles',
       },
       {
         title: 'New Article',
-        href: { name: 'stacks' },
+        href: { name: 'articles-create' },
       },
     ],
   }),
