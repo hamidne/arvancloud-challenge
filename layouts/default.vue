@@ -19,6 +19,6 @@ export default {
 
 <style>
 .layout__wrapper {
-  padding-top: 3.5rem;
+  padding-top: 4rem;
 }
 </style>

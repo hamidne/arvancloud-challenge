@@ -3,7 +3,24 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => ({
+    menu: [
+      {
+        header: true,
+        title: 'Post',
+      },
+      {
+        href: { name: 'index' },
+        title: 'All Articles',
+      },
+      {
+        title: 'New Article',
+        href: { name: 'stacks' },
+      },
+    ],
+  }),
+}
 </script>
 
 <style lang="scss" scoped>
