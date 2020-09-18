@@ -7,6 +7,7 @@ import modules from './configs/modules'
 import plugins from './configs/plugins'
 import components from './configs/components'
 import buildModules from './configs/buildModules'
+import bootstrapVue from './configs/bootstrapVue'
 
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
@@ -21,4 +22,5 @@ export default {
   plugins,
   components,
   buildModules,
+  bootstrapVue,
 }

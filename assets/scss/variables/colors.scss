@@ -1,0 +1,28 @@
+// Colors
+$body-bg: #f8fafc;
+$body-color: #534b68;
+$link-color: #777;
+$border-color: #eee;
+$mark-bg: #ffff00;
+$red: #d9534f;
+$blue: #1c7cd5;
+$indigo: #6574cd;
+$orange: #f0ad4e;
+$yellow: #ffb822;
+$green: #5cb85c;
+$teal: #4dc0b5;
+$cyan: #56c0e0;
+$pink: #f21692;
+$primary: $blue;
+$secondary: #23394f;
+
+$theme-colors: (
+  'grey': #757575,
+  'white': #fff,
+  'blue': $blue,
+  'darkblue': #004f9f,
+  'red': $red,
+  'green': $green,
+);
+
+$component-active-bg: darken($secondary, 25%);
