@@ -1,9 +1,13 @@
 <template>
-  <div></div>
+  <div>
+    <h1 class="text-center">LOGIN</h1>
+  </div>
 </template>
 
 <script>
-export default {}
+export default {
+  layout: 'auth',
+}
 </script>
 
 <style lang="scss" scoped></style>
