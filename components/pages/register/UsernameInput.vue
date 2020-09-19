@@ -1,5 +1,10 @@
 <template>
-  <validation-provider v-slot="{ valid, errors }" rules="required" name="User">
+  <validation-provider
+    v-slot="{ valid, errors }"
+    rules="required"
+    vid="username"
+    name="User"
+  >
     <b-form-group label="User" label-for="input-username">
       <b-form-input
         id="input-username"

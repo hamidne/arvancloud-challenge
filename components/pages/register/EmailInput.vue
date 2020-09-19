@@ -2,6 +2,7 @@
   <validation-provider
     v-slot="{ valid, errors }"
     rules="required|email"
+    vid="email"
     name="Email"
   >
     <b-form-group label="Email" label-for="input-email">

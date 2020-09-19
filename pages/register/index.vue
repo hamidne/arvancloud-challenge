@@ -32,6 +32,9 @@ export default {
       this.$axios
         .$post('/users', { user: this.form })
         .then(({ user }) => this.$auth.setUserToken(user.token))
+        .catch(({ response }) =>
+          this.$refs.observer.setErrors(response.data.errors)
+        )
     },
   },
 }
