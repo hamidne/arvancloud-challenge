@@ -19,9 +19,13 @@ export default {
   }),
   methods: {
     submit() {
-      this.$axios
-        .$post('/articles', { article: this.form })
-        .then(() => this.$router.push({ name: 'articles' }))
+      this.$axios.$post('/articles', { article: this.form }).then(() => {
+        this.$router.push({ name: 'articles' })
+        this.$bvToast.toast('Well done! Article created successfuly', {
+          variant: 'success',
+          solid: true,
+        })
+      })
     },
   },
 }

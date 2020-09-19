@@ -14,6 +14,10 @@ export default {
   methods: {
     deleteItem(index) {
       this.items.splice(index, 1)
+      this.$bvToast.toast('Article deleted successfuly', {
+        variant: 'success',
+        solid: true,
+      })
     },
   },
   async asyncData({ $axios, error }) {
