@@ -28,7 +28,7 @@ export default {
     linkGen(pageNum) {
       return pageNum === 1
         ? { name: 'articles' }
-        : { name: 'articles', query: { page: pageNum } }
+        : { name: 'articles-pages-page', params: { page: pageNum } }
     },
   },
 }
