@@ -1,46 +1,27 @@
 <template>
   <b-container fluid>
     <h1>New Article</h1>
-    <b-form @submit.prevent="submit">
-      <b-row>
-        <b-col md="5">
-          <b-form-group label="Title" label-for="input-title">
-            <b-form-input id="input-title" v-model="form.title" required />
-            <b-form-invalid-feedback>Required field</b-form-invalid-feedback>
-          </b-form-group>
-
-          <b-form-group label="Description" label-for="input-description">
-            <b-form-input
-              id="input-description"
-              v-model="form.description"
-              required
-            />
-            <b-form-invalid-feedback>Required field</b-form-invalid-feedback>
-          </b-form-group>
-
-          <b-form-group label="Body" label-for="input-body">
-            <b-textarea
-              id="input-body"
-              v-model="form.body"
-              rows="10"
-              required
-            />
-            <b-form-invalid-feedback>Required field</b-form-invalid-feedback>
-          </b-form-group>
-
-          <b-button type="submit" variant="primary">Submit</b-button>
-        </b-col>
-      </b-row>
-    </b-form>
+    <article-form v-model="form" @submit="submit" />
   </b-container>
 </template>
 
 <script>
+import ArticleForm from '~/components/pages/articles/global/ArticleForm.vue'
 export default {
-  data: () => ({ form: {} }),
+  components: { ArticleForm },
+  data: () => ({
+    form: {
+      title: '',
+      description: '',
+      body: '',
+      tagList: [],
+    },
+  }),
   methods: {
     submit() {
-      this.$axios.$post()
+      this.$axios
+        .$post('/articles', { article: this.form })
+        .then(() => this.$router.push({ name: 'articles' }))
     },
   },
 }
