@@ -12,7 +12,7 @@
         :state="errors[0] ? false : valid ? true : null"
         required
       />
-      <b-form-invalid-feedback>{{ errors[0] }}</b-form-invalid-feedback>
+      <b-form-invalid-feedback v-text="errors[0]" />
     </b-form-group>
   </validation-provider>
 </template>

@@ -1,14 +1,9 @@
 <template>
-  <validation-provider
-    v-slot="{ valid, errors }"
-    rules="required|email"
-    name="Email"
-  >
-    <b-form-group label="Email" label-for="input-email">
+  <validation-provider v-slot="{ valid, errors }" rules="required" name="User">
+    <b-form-group label="User" label-for="input-username">
       <b-form-input
-        id="input-email"
+        id="input-username"
         v-model="innerValue"
-        type="email"
         :state="errors[0] ? false : valid ? true : null"
         required
       />

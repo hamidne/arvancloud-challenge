@@ -2,9 +2,7 @@
   <div>
     <h1 class="text-center text-muted mb-4">Register</h1>
     <b-form @submit.prevent="submit">
-      <b-form-group label="User" label-for="input-username">
-        <b-form-input id="input-username" v-model="form.username" required />
-      </b-form-group>
+      <username-input v-model="form.username" />
 
       <b-form-group label="Email" label-for="input-email">
         <b-form-input
@@ -36,8 +34,10 @@
 </template>
 
 <script>
+import UsernameInput from '~/components/pages/register/UsernameInput.vue'
 export default {
   layout: 'auth',
+  components: { UsernameInput },
   data: () => ({ form: {} }),
   methods: {
     submit() {
