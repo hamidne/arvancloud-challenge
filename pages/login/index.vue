@@ -2,15 +2,7 @@
   <div>
     <h1 class="text-center text-muted mb-4">LOGIN</h1>
     <b-form @submit.prevent="submit">
-      <b-form-group label="Email" label-for="input-email">
-        <b-form-input
-          id="input-email"
-          v-model="form.email"
-          type="email"
-          required
-        />
-      </b-form-group>
-
+      <email-input v-model="form.email" />
       <b-form-group label="Password" label-for="input-password">
         <b-form-input
           id="input-password"
@@ -35,8 +27,10 @@
 </template>
 
 <script>
+import EmailInput from '~/components/pages/login/EmailInput.vue'
 export default {
   layout: 'auth',
+  components: { EmailInput },
   data: () => ({ form: {} }),
   methods: {
     submit() {
