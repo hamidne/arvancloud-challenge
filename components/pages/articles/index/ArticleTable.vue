@@ -3,6 +3,16 @@
     <template #cell(index)="{ index }">
       {{ index + 1 }}
     </template>
+    <template #cell(actions)="{ item }">
+      <b-dropdown variant="info" right split text="..." class="text-white m-2">
+        <b-dropdown-item
+          :to="{ name: 'articles-edit-slug', params: { slug: item.slug } }"
+        >
+          Edit
+        </b-dropdown-item>
+        <b-dropdown-item @click="deleteItem">Delete</b-dropdown-item>
+      </b-dropdown>
+    </template>
   </b-table>
 </template>
 
@@ -40,6 +50,9 @@ export default {
       { key: 'actions', label: '' },
     ],
   }),
+  methods: {
+    deleteItem() {},
+  },
 }
 </script>
 
