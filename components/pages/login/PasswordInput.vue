@@ -2,6 +2,7 @@
   <validation-provider
     v-slot="{ valid, errors }"
     rules="required|min:8"
+    vid="email or password"
     name="Password"
   >
     <b-form-group label="Password" label-for="input-password">

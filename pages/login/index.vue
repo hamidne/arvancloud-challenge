@@ -28,7 +28,11 @@ export default {
   data: () => ({ form: { email: '', password: '' } }),
   methods: {
     submit() {
-      this.$auth.login({ data: { user: this.form } })
+      this.$auth
+        .login({ data: { user: this.form } })
+        .catch(({ response }) =>
+          this.$refs.observer.setErrors(response.data.errors)
+        )
     },
   },
 }
