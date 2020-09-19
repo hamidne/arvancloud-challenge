@@ -51,7 +51,7 @@ export default {
   },
   created() {
     this.$axios.$get('/tags').then(({ tags }) => {
-      this.items = tags.sort((a, b) => {
+      this.items = [...new Set([...tags, ...this.innerValue])].sort((a, b) => {
         const nameA = a.toUpperCase()
         const nameB = b.toUpperCase()
         if (nameA < nameB) return -1
