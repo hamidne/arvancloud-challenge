@@ -14,7 +14,6 @@ $teal: #4dc0b5;
 $cyan: #56c0e0;
 $pink: #f21692;
 $primary: $blue;
-$secondary: #23394f;
 
 $theme-colors: (
   'grey': #757575,
@@ -24,5 +23,3 @@ $theme-colors: (
   'red': $red,
   'green': $green,
 );
-
-$component-active-bg: darken($secondary, 25%);
