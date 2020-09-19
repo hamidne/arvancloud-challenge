@@ -4,7 +4,6 @@
     <validation-observer ref="observer" v-slot="{ handleSubmit }">
       <b-form @submit.prevent="handleSubmit(submit)">
         <email-input v-model="form.email" />
-
         <password-input v-model="form.passwrod" />
 
         <b-button variant="primary" class="mt-2" type="submit" block>
