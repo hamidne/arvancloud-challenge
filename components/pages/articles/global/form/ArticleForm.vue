@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import TagsInput from '~/components/pages/articles/create/TagsInput.vue'
+import TagsInput from '~/components/pages/articles/global/form/TagsInput.vue'
 export default {
   components: { TagsInput },
   props: {
@@ -53,6 +53,11 @@ export default {
       set(value) {
         this.$emit('input', value)
       },
+    },
+  },
+  methods: {
+    submit() {
+      this.$emit('submit')
     },
   },
 }

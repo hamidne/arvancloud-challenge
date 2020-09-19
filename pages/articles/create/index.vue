@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ArticleForm from '~/components/pages/articles/global/ArticleForm.vue'
+import ArticleForm from '~/components/pages/articles/global/form/ArticleForm.vue'
 export default {
   components: { ArticleForm },
   data: () => ({
