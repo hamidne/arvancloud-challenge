@@ -5,7 +5,16 @@
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ $axios, error }) {
+    try {
+      const { articles, articlesCount } = await $axios.$get('/articles')
+      return { items: articles, total: articlesCount }
+    } catch (err) {
+      throw error(err)
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped></style>
