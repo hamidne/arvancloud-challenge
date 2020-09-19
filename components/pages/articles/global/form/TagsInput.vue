@@ -7,13 +7,25 @@
         trim
         @keypress.enter="addItem"
       />
-      <b-form-checkbox-group
-        v-model="innerValue"
-        :options="items"
-        name="flavour-2a"
-        class="border p-2 mt-3 rounded"
-        stacked
-      />
+      <b-skeleton-wrapper :loading="loading">
+        <template #loading>
+          <div class="border p-2 mt-3 rounded">
+            <b-skeleton
+              v-for="i in 10"
+              :key="i"
+              class="mb-3"
+              :width="`${Math.random() * 50 + 30}%`"
+            />
+          </div>
+        </template>
+        <b-form-checkbox-group
+          v-model="innerValue"
+          :options="items"
+          name="flavour-2a"
+          class="border p-2 mt-3 rounded"
+          stacked
+        />
+      </b-skeleton-wrapper>
     </b-form-group>
   </div>
 </template>
@@ -26,7 +38,7 @@ export default {
       required: true,
     },
   },
-  data: () => ({ items: [], text: '' }),
+  data: () => ({ items: [], text: '', loading: true }),
   computed: {
     innerValue: {
       get() {
@@ -46,6 +58,7 @@ export default {
         if (nameA > nameB) return 1
         return 0
       })
+      this.loading = false
     })
   },
   methods: {

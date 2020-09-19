@@ -1,13 +1,10 @@
 <template>
-  <validation-provider
-    v-slot="{ valid, errors }"
-    rules="required"
-    name="Description"
-  >
-    <b-form-group label="Description" label-for="input-description">
-      <b-form-input
-        id="input-description"
+  <validation-provider v-slot="{ valid, errors }" rules="required" name="Body">
+    <b-form-group label="Body" label-for="input-body">
+      <b-textarea
+        id="input-body"
         v-model="innerValue"
+        rows="10"
         :state="errors[0] ? false : valid ? true : null"
         required
       />

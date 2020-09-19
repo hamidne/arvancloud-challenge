@@ -5,16 +5,7 @@
         <b-col md="5">
           <title-input v-model="innerValue.title" />
           <description-input v-model="innerValue.description" />
-
-          <b-form-group label="Body" label-for="input-body">
-            <b-textarea
-              id="input-body"
-              v-model="innerValue.body"
-              rows="10"
-              required
-            />
-            <b-form-invalid-feedback>Required field</b-form-invalid-feedback>
-          </b-form-group>
+          <body-input v-model="innerValue.body" />
 
           <b-button type="submit" variant="primary">Submit</b-button>
         </b-col>
@@ -28,10 +19,11 @@
 
 <script>
 import TagsInput from '~/components/pages/articles/global/form/TagsInput.vue'
+import BodyInput from '~/components/pages/articles/global/form/BodyInput.vue'
 import TitleInput from '~/components/pages/articles/global/form/TitleInput.vue'
 import DescriptionInput from '~/components/pages/articles/global/form/DescriptionInput.vue'
 export default {
-  components: { TagsInput, TitleInput, DescriptionInput },
+  components: { TagsInput, TitleInput, BodyInput, DescriptionInput },
   props: {
     value: {
       type: Object,

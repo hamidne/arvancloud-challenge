@@ -3,7 +3,7 @@
     <b-form-group label="Title" label-for="input-title">
       <b-form-input
         id="input-title"
-        v-model="innerValue.title"
+        v-model="innerValue"
         :state="errors[0] ? false : valid ? true : null"
         required
       />
