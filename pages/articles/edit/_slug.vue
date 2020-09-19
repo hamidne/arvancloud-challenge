@@ -1,6 +1,6 @@
 <template>
   <b-container fluid>
-    <h1>New Article</h1>
+    <h1>Edit Article</h1>
     <article-form v-model="form" @submit="submit" />
   </b-container>
 </template>
@@ -9,22 +9,29 @@
 import ArticleForm from '~/components/pages/articles/global/form/ArticleForm.vue'
 export default {
   components: { ArticleForm },
-  data: () => ({
-    form: {
-      title: '',
-      description: '',
-      body: '',
-      tagList: [],
-    },
-  }),
   methods: {
     submit() {
+      const slug = this.$route.params.slug
       this.$axios
-        .$post('/articles', { article: this.form })
+        .$put(`/articles/${slug}`, { article: this.form })
         .then(() => this.$router.push({ name: 'articles' }))
     },
   },
-  asyncData({ $axios, error }) {},
+  async asyncData({ $axios, params, error }) {
+    try {
+      const { article } = await $axios.$get(`/articles/${params.slug}`)
+      return {
+        form: {
+          title: article.title,
+          description: article.description,
+          body: article.body,
+          tagList: article.tagList,
+        },
+      }
+    } catch (err) {
+      throw error(err)
+    }
+  },
 }
 </script>
 
