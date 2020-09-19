@@ -1,46 +1,38 @@
 <template>
   <div>
     <h1 class="text-center text-muted mb-4">LOGIN</h1>
-    <b-form @submit.prevent="submit">
-      <b-form-group label="Email" label-for="input-email">
-        <b-form-input
-          id="input-email"
-          v-model="form.email"
-          type="email"
-          required
-        />
-      </b-form-group>
+    <validation-observer ref="observer" v-slot="{ handleSubmit }">
+      <b-form @submit.prevent="handleSubmit(submit)">
+        <email-input v-model="form.email" />
+        <password-input v-model="form.passwrod" />
 
-      <b-form-group label="Password" label-for="input-password">
-        <b-form-input
-          id="input-password"
-          v-model="form.password"
-          type="password"
-          :state="false"
-          required
-        />
-        <b-form-invalid-feedback>Required field</b-form-invalid-feedback>
-      </b-form-group>
+        <b-button variant="primary" class="mt-2" type="submit" block>
+          Login
+        </b-button>
 
-      <b-button variant="primary" class="mt-2" type="submit" block>
-        Login
-      </b-button>
-
-      <nuxt-link :to="{ name: 'register' }" class="d-block mt-2 text-dark">
-        <span>Don't have account?</span>
-        <strong>Register Now</strong>
-      </nuxt-link>
-    </b-form>
+        <nuxt-link :to="{ name: 'register' }" class="d-block mt-2 text-dark">
+          <span>Don't have account?</span>
+          <strong>Register Now</strong>
+        </nuxt-link>
+      </b-form>
+    </validation-observer>
   </div>
 </template>
 
 <script>
+import EmailInput from '~/components/pages/login/EmailInput.vue'
+import PasswordInput from '~/components/pages/login/PasswordInput.vue'
 export default {
   layout: 'auth',
-  data: () => ({ form: {} }),
+  components: { EmailInput, PasswordInput },
+  data: () => ({ form: { email: '', password: '' } }),
   methods: {
     submit() {
-      this.$auth.login({ data: { user: this.form } })
+      this.$auth
+        .login({ data: { user: this.form } })
+        .catch(({ response }) =>
+          this.$refs.observer.setErrors(response.data.errors)
+        )
     },
   },
 }

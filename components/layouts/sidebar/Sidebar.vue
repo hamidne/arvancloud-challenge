@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar text-white bg-primary w-100">
+  <div class="sidebar position-fixed text-white bg-primary w-100 h-100">
     <sidebar-menu />
   </div>
 </template>
@@ -13,6 +13,7 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar {
+  left: 0;
   max-width: 250px;
 }
 </style>

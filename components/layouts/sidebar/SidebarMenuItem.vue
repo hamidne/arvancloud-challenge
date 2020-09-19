@@ -20,7 +20,10 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar-menu__item {
-  padding-left: 1.3rem;
   text-decoration: none;
+  padding: 0.3rem 0 0.3rem 2.5rem;
+  &.nuxt-link-exact-active {
+    background: #ffffff26;
+  }
 }
 </style>

@@ -64,7 +64,12 @@ module.exports = {
     'vue/no-unregistered-components': [
       'error',
       {
-        ignorePatterns: ['nuxt(-\\w+)?', 'b-\\w+'],
+        ignorePatterns: [
+          'nuxt(-\\w+)?',
+          'b-\\w+',
+          'validation-provider',
+          'validation-observer',
+        ],
       },
     ],
     'vue/no-unused-properties': [

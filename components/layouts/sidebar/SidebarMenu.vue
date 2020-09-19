@@ -34,6 +34,5 @@ export default {
 <style lang="scss" scoped>
 .sidebar-menu {
   padding-top: 0.5rem;
-  padding-left: 1.2rem;
 }
 </style>

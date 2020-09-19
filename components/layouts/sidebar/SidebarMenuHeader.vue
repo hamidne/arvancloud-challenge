@@ -1,5 +1,5 @@
 <template>
-  <h4 v-text="item.title" />
+  <h4 class="sidebar-menu__header" v-text="item.title" />
 </template>
 
 <script>
@@ -13,4 +13,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.sidebar-menu__header {
+  padding-left: 1.2rem;
+}
+</style>
