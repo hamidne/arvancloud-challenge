@@ -4,15 +4,7 @@
       <b-row>
         <b-col md="5">
           <title-input v-model="innerValue.title" />
-
-          <b-form-group label="Description" label-for="input-description">
-            <b-form-input
-              id="input-description"
-              v-model="innerValue.description"
-              required
-            />
-            <b-form-invalid-feedback>Required field</b-form-invalid-feedback>
-          </b-form-group>
+          <description-input v-model="innerValue.description" />
 
           <b-form-group label="Body" label-for="input-body">
             <b-textarea
@@ -35,10 +27,11 @@
 </template>
 
 <script>
-import TitleInput from '~/components/pages/articles/global/form/TitleInput.vue'
 import TagsInput from '~/components/pages/articles/global/form/TagsInput.vue'
+import TitleInput from '~/components/pages/articles/global/form/TitleInput.vue'
+import DescriptionInput from '~/components/pages/articles/global/form/DescriptionInput.vue'
 export default {
-  components: { TagsInput, TitleInput },
+  components: { TagsInput, TitleInput, DescriptionInput },
   props: {
     value: {
       type: Object,
