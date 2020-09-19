@@ -3,7 +3,7 @@
     <header-layout />
     <div class="layout__wrapper d-flex">
       <sidebar />
-      <nuxt />
+      <nuxt class="layout__content" />
     </div>
   </div>
 </template>
@@ -21,5 +21,8 @@ export default {
 .layout__wrapper {
   padding-top: 4rem;
   padding-left: 250px;
+}
+.layout__content {
+  padding: 2rem;
 }
 </style>

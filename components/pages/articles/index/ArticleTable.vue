@@ -1,10 +1,17 @@
 <template>
-  <b-table head-variant="light" :items="items" :fields="fields">
+  <b-table head-variant="light" :items="items" :fields="fields" small>
     <template #cell(index)="{ index }">
       {{ index + 1 }}
     </template>
     <template #cell(actions)="{ item, index }">
-      <b-dropdown variant="info" right split text="..." class="text-white m-2">
+      <b-dropdown
+        variant="info"
+        right
+        split
+        text="..."
+        class="text-white m-2"
+        size="sm"
+      >
         <b-dropdown-item
           :to="{ name: 'articles-edit-slug', params: { slug: item.slug } }"
         >
