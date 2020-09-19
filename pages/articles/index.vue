@@ -11,7 +11,9 @@ export default {
   components: { ArticleTable },
   async asyncData({ $axios, error }) {
     try {
-      const { articles, articlesCount } = await $axios.$get('/articles')
+      const { articles, articlesCount } = await $axios.$get('/articles', {
+        params: { limit: 10 },
+      })
       return { items: articles, total: articlesCount }
     } catch (err) {
       throw error(err)
