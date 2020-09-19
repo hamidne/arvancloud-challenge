@@ -21,7 +21,8 @@ export default {
     submit() {
       this.$axios.$post('/articles', { article: this.form }).then(() => {
         this.$router.push({ name: 'articles' })
-        this.$bvToast.toast('Well done! Article created successfuly', {
+        this.$bvToast.toast('Article created successfuly', {
+          title: 'Well done! ',
           variant: 'success',
           solid: true,
         })

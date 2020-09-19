@@ -14,7 +14,8 @@ export default {
       const slug = this.$route.params.slug
       this.$axios.$put(`/articles/${slug}`, { article: this.form }).then(() => {
         this.$router.push({ name: 'articles' })
-        this.$bvToast.toast('Well done! Article updated successfuly', {
+        this.$bvToast.toast('Article updated successfuly', {
+          title: 'Well done! ',
           variant: 'success',
           solid: true,
         })

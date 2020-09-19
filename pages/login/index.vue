@@ -28,11 +28,14 @@ export default {
   data: () => ({ form: { email: '', password: '' } }),
   methods: {
     submit() {
-      this.$auth
-        .login({ data: { user: this.form } })
-        .catch(({ response }) =>
-          this.$refs.observer.setErrors(response.data.errors)
-        )
+      this.$auth.login({ data: { user: this.form } }).catch(({ response }) => {
+        this.$bvToast.toast('User name and/or Password is invalid', {
+          title: 'Login Failed!',
+          variant: 'danger',
+          solid: true,
+        })
+        this.$refs.observer.setErrors(response.data.errors)
+      })
     },
   },
 }
