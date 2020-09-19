@@ -26,7 +26,7 @@ import PasswordInput from '~/components/pages/register/PasswordInput.vue'
 export default {
   layout: 'auth',
   components: { EmailInput, UsernameInput, PasswordInput },
-  data: () => ({ form: {} }),
+  data: () => ({ form: { username: '', password: '', email: '' } }),
   methods: {
     submit() {
       this.$axios
