@@ -12,9 +12,13 @@ export default {
   methods: {
     submit() {
       const slug = this.$route.params.slug
-      this.$axios
-        .$put(`/articles/${slug}`, { article: this.form })
-        .then(() => this.$router.push({ name: 'articles' }))
+      this.$axios.$put(`/articles/${slug}`, { article: this.form }).then(() => {
+        this.$router.push({ name: 'articles' })
+        this.$bvToast.toast('Well done! Article updated successfuly', {
+          variant: 'success',
+          solid: true,
+        })
+      })
     },
   },
   async asyncData({ $axios, params, error }) {

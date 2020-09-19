@@ -3,14 +3,14 @@
     <template #cell(index)="{ index }">
       {{ index + 1 }}
     </template>
-    <template #cell(actions)="{ item }">
+    <template #cell(actions)="{ item, index }">
       <b-dropdown variant="info" right split text="..." class="text-white m-2">
         <b-dropdown-item
           :to="{ name: 'articles-edit-slug', params: { slug: item.slug } }"
         >
           Edit
         </b-dropdown-item>
-        <b-dropdown-item @click="deleteItem">Delete</b-dropdown-item>
+        <b-dropdown-item @click="deleteItem(index)">Delete</b-dropdown-item>
       </b-dropdown>
     </template>
   </b-table>
@@ -51,7 +51,25 @@ export default {
     ],
   }),
   methods: {
-    deleteItem() {},
+    deleteItem(index) {
+      this.$bvModal
+        .msgBoxConfirm('Are you sure to delete Article?', {
+          title: 'Delete Article',
+          okVariant: 'danger px-4',
+          cancelVariant: 'outline-dark px-4',
+          okTitle: 'YES',
+          cancelTitle: 'NO',
+          hideHeaderClose: false,
+        })
+        .then((value) => {
+          if (value) {
+            const slug = this.items[index].slug
+            this.$axios.$delete(`/articles/${slug}`).then(() => {
+              this.$emit('delete-item', index)
+            })
+          }
+        })
+    },
   },
 }
 </script>
