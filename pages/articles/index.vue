@@ -20,10 +20,11 @@ export default {
       })
     },
   },
-  async asyncData({ $axios, error }) {
+  async asyncData({ $axios, error, params }) {
     try {
+      const offset = (params?.page - 1) * 10 || 0
       const { articles, articlesCount } = await $axios.$get('/articles', {
-        params: { limit: 10 },
+        params: { limit: 10, offset },
       })
       return { items: articles, total: articlesCount }
     } catch (err) {

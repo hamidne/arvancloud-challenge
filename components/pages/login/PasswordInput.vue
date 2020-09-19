@@ -1,6 +1,6 @@
 <template>
   <validation-provider
-    v-slot="{ valid, errors }"
+    v-slot="{ errors }"
     rules="required|min:8"
     vid="email or password"
     name="Password"
@@ -10,7 +10,7 @@
         id="input-password"
         v-model="innerValue"
         type="password"
-        :state="errors[0] ? false : valid ? true : null"
+        :state="errors[0] ? false : null"
         required
       />
       <b-form-invalid-feedback v-text="errors[0]" />

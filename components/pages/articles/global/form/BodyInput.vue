@@ -1,11 +1,11 @@
 <template>
-  <validation-provider v-slot="{ valid, errors }" rules="required" name="Body">
+  <validation-provider v-slot="{ errors }" rules="required" name="Body">
     <b-form-group label="Body" label-for="input-body">
       <b-textarea
         id="input-body"
         v-model="innerValue"
         rows="10"
-        :state="errors[0] ? false : valid ? true : null"
+        :state="errors[0] ? false : null"
         required
       />
       <b-form-invalid-feedback v-text="errors[0]" />

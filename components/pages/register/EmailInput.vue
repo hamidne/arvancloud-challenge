@@ -1,6 +1,6 @@
 <template>
   <validation-provider
-    v-slot="{ valid, errors }"
+    v-slot="{ errors }"
     rules="required|email"
     vid="email"
     name="Email"
@@ -10,7 +10,7 @@
         id="input-email"
         v-model="innerValue"
         type="email"
-        :state="errors[0] ? false : valid ? true : null"
+        :state="errors[0] ? false : null"
         required
       />
       <b-form-invalid-feedback v-text="errors[0]" />
