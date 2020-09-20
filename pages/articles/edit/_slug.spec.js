@@ -10,8 +10,10 @@ const article = {
   tagList: 'TAGLIST',
 }
 const push = jest.fn()
+const error = jest.fn()
 const toast = jest.fn()
 axios.$put = jest.fn().mockResolvedValue()
+axios.$get = jest.fn().mockResolvedValue({ article })
 
 const factory = () => {
   return shallowMount(slug, {
@@ -46,5 +48,14 @@ describe('_slug.vue', () => {
       variant: 'success',
       solid: true,
     })
+  })
+
+  test('should correctly work async data', async () => {
+    const form = await wrapper.vm.$options.asyncData({
+      $axios: axios,
+      params: { slug: 'SLUG' },
+      error,
+    })
+    expect(form).toEqual({ form: article })
   })
 })
