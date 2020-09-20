@@ -1,14 +1,16 @@
-ArticleTable import { shallowMount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import { BTable } from 'bootstrap-vue'
+import axios from 'axios'
 import ArticleTable from './ArticleTable.vue'
 
 /* #region  Test setup */
+axios.$delete = jest.fn().mockResolvedValue()
 const msgBoxConfirm = jest.fn().mockResolvedValue(true)
 
 const factory = () => {
   return shallowMount(ArticleTable, {
     propsData: { items: [{ slug: 'SLUG' }] },
-    mocks: { BTable, $bvModal: { msgBoxConfirm } },
+    mocks: { BTable, $bvModal: { msgBoxConfirm }, $axios: axios },
   })
 }
 /* #endregion */
@@ -26,8 +28,8 @@ describe('ArticleTable.vue', () => {
     expect(index).toBe(3)
   })
 
-  test('should trigger modal when deleteItem called', () => {
-    wrapper.vm.deleteItem(12)
+  test('should trigger modal when deleteItem called', async () => {
+    wrapper.vm.deleteItem(0)
     expect(msgBoxConfirm).toHaveBeenCalledWith(
       'Are you sure to delete Article?',
       {
@@ -40,5 +42,10 @@ describe('ArticleTable.vue', () => {
         hideHeaderClose: false,
       }
     )
+
+    await wrapper.vm.$nextTick()
+
+    expect(axios.$delete).toHaveBeenCalledWith('/articles/SLUG')
+    expect(wrapper.emitted('delete-item')[0]).toEqual([0])
   })
 })
