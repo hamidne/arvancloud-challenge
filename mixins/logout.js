@@ -8,6 +8,7 @@ export default {
           cancelVariant: 'outline-dark px-4',
           okTitle: 'YES',
           cancelTitle: 'NO',
+          centered: true,
           hideHeaderClose: false,
         })
         .then((value) => {

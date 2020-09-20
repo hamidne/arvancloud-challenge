@@ -4,7 +4,7 @@
     :class="{ active: activeSidebar }"
   >
     <sidebar-menu />
-    <div class="px-2">
+    <div class="px-2 d-lg-none">
       <b-button variant="info" block @click="logout">Logout</b-button>
     </div>
   </div>
