@@ -2,14 +2,14 @@
   <validation-observer ref="observer" v-slot="{ handleSubmit }">
     <b-form @submit.prevent="handleSubmit(submit)">
       <b-row>
-        <b-col md="5">
+        <b-col xl="5" md="8">
           <title-input v-model="innerValue.title" />
           <description-input v-model="innerValue.description" />
           <body-input v-model="innerValue.body" />
 
           <b-button type="submit" variant="primary">Submit</b-button>
         </b-col>
-        <b-col>
+        <b-col xl="2" lg="3" md="4">
           <tags-input v-model="innerValue.tagList" />
         </b-col>
       </b-row>
