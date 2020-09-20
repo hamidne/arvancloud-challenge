@@ -72,8 +72,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.tags-inputs {
-  max-width: 17rem;
-}
-</style>
+<style lang="scss" scoped></style>

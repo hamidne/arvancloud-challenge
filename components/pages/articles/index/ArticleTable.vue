@@ -1,7 +1,13 @@
 <template>
-  <b-table head-variant="light" :items="items" :fields="fields" small>
+  <b-table
+    head-variant="light"
+    :items="items"
+    :fields="fields"
+    responsive
+    small
+  >
     <template #cell(index)="{ index }">
-      {{ index + 1 }}
+      {{ rowIndex(index) }}
     </template>
     <template #cell(actions)="{ item, index }">
       <b-dropdown
@@ -58,6 +64,9 @@ export default {
     ],
   }),
   methods: {
+    rowIndex(index) {
+      return index + 1 + ((this.$route.params?.page - 1) * 10 || 0)
+    },
     deleteItem(index) {
       this.$bvModal
         .msgBoxConfirm('Are you sure to delete Article?', {

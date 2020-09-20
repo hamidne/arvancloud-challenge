@@ -6,4 +6,5 @@ export default [
   '@nuxtjs/auth',
   // https://go.nuxtjs.dev/axios
   '@nuxtjs/axios',
+  '@nuxtjs/style-resources',
 ]

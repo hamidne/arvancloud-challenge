@@ -2,9 +2,9 @@
   <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand :to="{ name: 'index' }">Arvan Challenge</b-navbar-brand>
 
-    <b-navbar-toggle target="nav-collapse" />
+    <b-navbar-toggle @click="toggleSidebar" />
 
-    <b-collapse id="nav-collapse" is-nav>
+    <b-collapse is-nav>
       <b-navbar-nav>
         <span class="text-white">Welcome {{ $auth.user.username }}</span>
       </b-navbar-nav>
@@ -17,23 +17,12 @@
 </template>
 
 <script>
+import logoutMixin from '~/mixins/logout.js'
 export default {
+  mixins: [logoutMixin],
   methods: {
-    logout() {
-      this.$bvModal
-        .msgBoxConfirm('Are you sure to logout Panel?', {
-          title: 'Logout',
-          okVariant: 'danger px-4',
-          cancelVariant: 'outline-dark px-4',
-          okTitle: 'YES',
-          cancelTitle: 'NO',
-          hideHeaderClose: false,
-        })
-        .then((value) => {
-          if (value) {
-            this.$auth.logout().then(() => this.$router.push({ name: 'login' }))
-          }
-        })
+    toggleSidebar() {
+      this.$store.dispatch('toggleSidebar')
     },
   },
 }
@@ -41,6 +30,6 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  height: 4rem;
+  height: $header-height;
 }
 </style>
