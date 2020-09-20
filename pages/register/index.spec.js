@@ -5,11 +5,17 @@ import index from './index.vue'
 /* #region  Test setup */
 const toast = jest.fn()
 axios.$post = jest.fn().mockResolvedValue({ user: { token: 'TOKEN' } })
+const setErrors = jest.fn()
 const setUserToken = jest.fn()
 
 const factory = () => {
   return shallowMount(index, {
-    mocks: { $axios: axios, $bvToast: { toast }, $auth: { setUserToken } },
+    mocks: {
+      $axios: axios,
+      $bvToast: { toast },
+      $auth: { setUserToken },
+      $refs: { observer: { setErrors } },
+    },
   })
 }
 /* #endregion */
@@ -31,5 +37,17 @@ describe('index.vue', () => {
     await wrapper.vm.$nextTick()
 
     expect(setUserToken).toHaveBeenCalledWith('TOKEN')
+  })
+
+  test('should called submit correctly and reject request', async () => {
+    axios.$post = jest
+      .fn()
+      .mockRejectedValue({ response: { data: { errors: [] } } })
+
+    wrapper.vm.submit()
+
+    expect(axios.$post).toHaveBeenCalledWith('/users', {
+      user: { email: '', password: '', username: '' },
+    })
   })
 })
