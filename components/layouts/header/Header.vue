@@ -1,5 +1,5 @@
 <template>
-  <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
+  <b-navbar fixed="top" toggleable="md" type="dark" variant="dark">
     <b-navbar-brand :to="{ name: 'index' }">Arvan Challenge</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse" />

@@ -1,5 +1,11 @@
 <template>
-  <b-table head-variant="light" :items="items" :fields="fields" small>
+  <b-table
+    head-variant="light"
+    :items="items"
+    :fields="fields"
+    responsive
+    small
+  >
     <template #cell(index)="{ index }">
       {{ index + 1 }}
     </template>
