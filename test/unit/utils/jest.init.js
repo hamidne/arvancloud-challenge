@@ -13,6 +13,7 @@ const stubs = {
   BFormGroup: true,
   BFormInput: true,
   BButton: true,
+  BCollapse: true,
   BDropdownItem: true,
   BDropdown: true,
   BContainer: true,
