@@ -17,10 +17,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .layout__wrapper {
-  padding-top: 4rem;
-  padding-left: 250px;
+  padding-top: $header-height;
+  padding-left: $sidebar-width;
+  @include media-breakpoint-down(md) {
+    padding-left: 0;
+  }
 }
 .layout__content {
   padding: 2rem;

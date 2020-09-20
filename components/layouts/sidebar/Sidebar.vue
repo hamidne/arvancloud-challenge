@@ -14,6 +14,9 @@ export default {
 <style lang="scss" scoped>
 .sidebar {
   left: 0;
-  max-width: 250px;
+  max-width: $sidebar-width;
+  @include media-breakpoint-down(md) {
+    transform: translateX(-$sidebar-width);
+  }
 }
 </style>

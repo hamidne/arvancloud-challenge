@@ -41,6 +41,6 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  height: 4rem;
+  height: $header-height;
 }
 </style>
