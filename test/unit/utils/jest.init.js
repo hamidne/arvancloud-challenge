@@ -28,6 +28,8 @@ const stubs = {
   BForm: true,
   BFormTextarea: true,
   BPaginationNav: true,
+  BSkeletonWrapper: true,
+  BFormCheckboxGroup: true,
 }
 
 config.mocks = mocks
