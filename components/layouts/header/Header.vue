@@ -1,10 +1,10 @@
 <template>
-  <b-navbar fixed="top" toggleable="md" type="dark" variant="dark">
+  <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand :to="{ name: 'index' }">Arvan Challenge</b-navbar-brand>
 
-    <b-navbar-toggle target="nav-collapse" />
+    <b-navbar-toggle @click="toggleSidebar" />
 
-    <b-collapse id="nav-collapse" is-nav>
+    <b-collapse is-nav>
       <b-navbar-nav>
         <span class="text-white">Welcome {{ $auth.user.username }}</span>
       </b-navbar-nav>
@@ -19,6 +19,9 @@
 <script>
 export default {
   methods: {
+    toggleSidebar() {
+      this.$store.dispatch('toggleSidebar')
+    },
     logout() {
       this.$bvModal
         .msgBoxConfirm('Are you sure to logout Panel?', {
