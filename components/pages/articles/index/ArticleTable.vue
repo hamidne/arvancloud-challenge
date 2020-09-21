@@ -81,9 +81,9 @@ export default {
         .then((value) => {
           if (value) {
             const slug = this.items[index].slug
-            this.$axios.$delete(`/articles/${slug}`).then(() => {
-              this.$emit('delete-item', index)
-            })
+            this.$axios
+              .$delete(`/articles/${slug}`)
+              .then(() => this.$emit('delete-item', index))
           }
         })
     },

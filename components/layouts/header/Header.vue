@@ -2,7 +2,7 @@
   <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand :to="{ name: 'index' }">Arvan Challenge</b-navbar-brand>
 
-    <b-navbar-toggle @click="toggleSidebar" />
+    <b-navbar-toggle data-test="toggle-sidebar" @click="toggleSidebar" />
 
     <b-collapse is-nav>
       <b-navbar-nav>

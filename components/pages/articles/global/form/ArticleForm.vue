@@ -1,6 +1,6 @@
 <template>
   <validation-observer ref="observer" v-slot="{ handleSubmit }">
-    <b-form @submit.prevent="handleSubmit(submit)">
+    <b-form data-test="form" @submit.prevent="handleSubmit(submit)">
       <b-row>
         <b-col xl="5" md="8">
           <title-input v-model="innerValue.title" />
