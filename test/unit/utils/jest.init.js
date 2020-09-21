@@ -9,8 +9,9 @@ const mocks = {
 
 const stubs = {
   NuxtLink: true,
-  ValidationProvider: true,
   BFormGroup: true,
+  BTextarea: true,
+  BFormInvalidFeedback: true,
   BFormInput: true,
   BButton: true,
   BCollapse: true,
