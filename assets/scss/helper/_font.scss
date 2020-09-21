@@ -1,0 +1,13 @@
+/* Font Helper @example .font-12 */
+@for $number from 1 to 10 {
+	.font-0#{$number} {
+		font-size: #{($number / 10)}rem !important;
+	}
+}
+@for $var from 1 to 10 {
+	@for $var2 from 0 to 10 {
+		.font-#{$var}#{$var2} {
+			font-size: #{($var + ($var2 / 10))}rem !important;
+		}
+	}
+}
