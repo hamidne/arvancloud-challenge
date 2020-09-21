@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import { BTable } from 'bootstrap-vue'
 import axios from 'axios'
 import ArticleTable from './ArticleTable.vue'
@@ -8,9 +8,12 @@ axios.$delete = jest.fn().mockResolvedValue()
 const msgBoxConfirm = jest.fn().mockResolvedValue(true)
 
 const factory = () => {
-  return shallowMount(ArticleTable, {
-    propsData: { items: [{ slug: 'SLUG' }] },
-    mocks: { BTable, $bvModal: { msgBoxConfirm }, $axios: axios },
+  return mount(ArticleTable, {
+    propsData: {
+      items: [{ slug: 'SLUG', tagList: [], body: 'BODY', createdAt: '' }],
+    },
+    mocks: { $bvModal: { msgBoxConfirm }, $axios: axios },
+    stubs: { BTable },
   })
 }
 /* #endregion */
