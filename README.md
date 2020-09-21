@@ -6,9 +6,9 @@ This project is the challenge of ArvanCloud Company to attract FrontEnd programm
 
 Project documentation
 
-- Doc [PDF](https://raw.githubusercontent.com/HamidNE/arvancloud-challenge/develop/Arvan_Front-End_Developer_Challenge%5B107%5D.pdf)
-- UI [XD](https://raw.githubusercontent.com/HamidNE/arvancloud-challenge/develop/arvan-challenge.xd)
-- UI [PDF](https://raw.githubusercontent.com/HamidNE/arvancloud-challenge/develop/arvan-challenge.pdf)
+- Doc [PDF](https://raw.githubusercontent.com/HamidNE/arvancloud-challenge/develop/docs/Arvan_Front-End_Developer_Challenge%5B107%5D.pdf)
+- UI [XD](https://raw.githubusercontent.com/HamidNE/arvancloud-challenge/develop/docs/arvan-challenge.xd)
+- UI [PDF](https://raw.githubusercontent.com/HamidNE/arvancloud-challenge/develop/docs/arvan-challenge.pdf)
 
 ## Build Setup
 
