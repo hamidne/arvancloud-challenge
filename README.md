@@ -15,6 +15,9 @@ Project documentation
 ## Build Setup
 
 ```bash
+# set .env file with your realworld api (ex: https://conduit.productionready.io/api/)
+echo API_URL=${YOUR API URL} > .env
+
 # install dependencies
 $ yarn install
 
