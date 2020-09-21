@@ -2,7 +2,13 @@ import { shallowMount } from '@vue/test-utils'
 import ArticleForm from './ArticleForm.vue'
 
 /* #region  Test setup */
+const setErrors = jest.fn()
 const handleSubmit = jest.fn((fn) => fn())
+
+const ValidationObserver = {
+  render(h) {},
+  methods: { setErrors },
+}
 
 const factory = () => {
   return shallowMount(ArticleForm, {
@@ -10,6 +16,7 @@ const factory = () => {
       value: { title: '', description: '', body: '', tagList: [] },
     },
     mocks: { handleSubmit },
+    components: { ValidationObserver },
   })
 }
 /* #endregion */

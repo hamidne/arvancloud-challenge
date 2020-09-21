@@ -1,14 +1,22 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import index from './index.vue'
 
 /* #region  Test setup */
 const toast = jest.fn()
+const setErrors = jest.fn()
 const login = jest
   .fn()
   .mockRejectedValue({ response: { data: { errors: [] } } })
+
+const ValidationObserver = {
+  render(h) {},
+  methods: { setErrors },
+}
+
 const factory = () => {
-  return shallowMount(index, {
+  return mount(index, {
     mocks: { $auth: { login }, $bvToast: { toast } },
+    components: { ValidationObserver },
   })
 }
 /* #endregion */

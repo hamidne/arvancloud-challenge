@@ -8,14 +8,19 @@ axios.$post = jest.fn().mockResolvedValue({ user: { token: 'TOKEN' } })
 const setErrors = jest.fn()
 const setUserToken = jest.fn()
 
+const ValidationObserver = {
+  render(h) {},
+  methods: { setErrors },
+}
+
 const factory = () => {
   return shallowMount(index, {
     mocks: {
       $axios: axios,
       $bvToast: { toast },
       $auth: { setUserToken },
-      $refs: { observer: { setErrors } },
     },
+    components: { ValidationObserver },
   })
 }
 /* #endregion */
@@ -39,7 +44,7 @@ describe('index.vue', () => {
     expect(setUserToken).toHaveBeenCalledWith('TOKEN')
   })
 
-  test('should called submit correctly and reject request', async () => {
+  test('should called submit correctly and reject request', () => {
     axios.$post = jest
       .fn()
       .mockRejectedValue({ response: { data: { errors: [] } } })
