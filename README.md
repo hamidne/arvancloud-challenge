@@ -1,3 +1,5 @@
+![Node.js CI](https://github.com/HamidNE/arvancloud-challenge/workflows/Node.js%20CI/badge.svg)
+
 # arvancloud-challenge
 
 ## Introduction
